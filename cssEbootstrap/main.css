@@ -1,0 +1,33 @@
+body{
+	background-color:#e9eef0;
+	font-family: Arial;
+}
+#iLogo{
+	margin-top:50px;
+	margin-bottom:25px;
+}
+
+.cadbutton{
+	padding:12px;
+	background-color:#56CCF2;
+	color: white;
+	border: 2px solid #2aa9d4;
+	border-radius: 5px;
+	margin-bottom: 5px;
+	width:80%;
+	font-size: 1.2em;
+	text-shadow: 1px 1px 1px grey;
+	transition:0.2s;	
+}
+.cadbutton:hover{
+	background-color: #00a0d6;
+	border: 2px solid #0b63b5
+}
+.cadbutton:active{
+	background-color: #56CCF2;
+	border: 2px solid #0b63b5
+
+}
+a{
+	text-decoration:none;
+}
