@@ -1,0 +1,76 @@
+body{
+	background-color:#e9eef0;
+	font-family: Arial;
+	padding:0px;
+}
+#iLogo{
+	margin-top:50px;
+	margin-bottom:25px;
+}
+
+.cadbutton{
+	padding:12px;
+	background-color:#56CCF2;
+	color: white;
+	border: 2px solid #2aa9d4;
+	border-radius: 5px;
+	margin-bottom: 5px;
+	width:80%;
+	font-size: 1.2em;
+	text-shadow: 1px 1px 1px grey;
+	transition:0.2s;	
+}
+.cadbutton:hover{
+	background-color: #00a0d6;
+	border: 2px solid #0b63b5
+}
+.cadbutton:active{
+	background-color: #56CCF2;
+	border: 2px solid #0b63b5
+
+}
+.cadselected{
+	padding:12px;
+	background-color:#00a0d6;
+	color: white;
+	border: 2px solid #2aa9d4;
+	border-radius: 5px;
+	margin-bottom: 5px;
+	width:80%;
+	font-size: 1.2em;
+	text-shadow: 1px 1px 1px grey;
+	transition:0.2s;	
+
+}
+a{
+	text-decoration:none;
+}
+.teladireita{
+	border: 1px solid #999999;
+	background-color: white;
+	color: black;
+	height: 65vh;
+	overflow-y:auto;
+	overflow-x:hidden;
+}
+
+input{
+	width:80%;
+	margin-bottom:15px;
+}
+.btnSubmit{
+	width:40%;
+	font-size: 1.1em;
+	padding:6px;
+	color: white;
+	background-color:#27AE60;
+	align-self:right;
+	border: 2px solid green;
+	border-radius: 5px;
+	float:right;
+	margin-right:20%
+}
+.btnSubmit:hover{
+	background-color:#1a8748;
+	cursor:pointer;
+}
