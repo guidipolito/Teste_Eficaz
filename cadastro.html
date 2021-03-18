@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+	<head>
+	<meta charset="UTF-8">
+	<title>Eficaz</title>
+	<link rel="stylesheet" href="cssEbootstrap/bootstrap-grid.css">
+	<link rel="stylesheet" href="cssEbootstrap/main.css">
+</head>
+<body>
+	<div class="container">
+		<img src="eficaz_logo.png" alt="logo" id="iLogo"><br>
+	<div class="row">
+	   <div class="col-md-3">
+		   <a href="index.html"><div class="cadselected">Cadastro</div></a>
+		<a href="teste"><div class="cadbutton">Lista de cadastrados</div></a>
+		<br>
+	   </div>
+	   <div class="col-md-9">
+		   <div class="teladireita">
+			   <br>
+			   <center><h1 style="color:#02a4c4">CADASTRO</h1></center>
+			   <form action="" method="post" onSubmit="alert('test')">
+					   <div class="row" style="width:90%; margin:auto">
+					<div class="col-md-6">
+						<label for="nome">Nome</label><br>
+						<input type="text" name="nome" id="nome" required><br>
+						<label for="email">email</label><br>
+						<input type="email" name="email" id="email" required><br>
+						<label for="tele">Telefone</label><br>
+						<input type="text" name="tele" id="tele" required>
+						<br><br><br>
+						<label for="CEP">CEP</label><br>
+						<input type="number" name="CEP" id="CEP" required><br>
+
+					</div>
+					<div class="col-md-6">
+						<label for="rua">Rua</label><br>
+						<input type="text" name="rua" id="rua" required><br>
+						<label for="ncasa">Numero</label><br>
+						<input type="number" name="ncasa" id="ncasa" required><br>
+						<label for="comple">Complemento</label><br>
+						<input type="text" name="comple" id="comple"><br>
+						<label for="ncasa">Bairro</label><br>
+						<input type="text" name="bairro" id="bairro"><br>
+						<label for="cidade">Cidade</label><br>
+						<input type="text" name="cidade" id="cidade" required><br>
+						<label for="estado">Estado</label><br>
+						<input type="text" name="estado" id="estado" required><br><br><br>
+						<input type="submit" value="Cadastrar" class="btnSubmit">
+					</div>
+					   </div>
+			   </form>
+		   </div> 
+	   </div>
+	</div>
+	</div>
+</body>
+</html>
