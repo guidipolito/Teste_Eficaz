@@ -5,6 +5,9 @@
 	<title>Eficaz</title>
 	<link rel="stylesheet" href="css/bootstrap.css">
 	<link rel="stylesheet" href="css/main.css">
+	<script src="js/jquery.js"></script>
+	<script src="js/jquery.mask.min.js"></script>
+	<script src="js/masks.js"></script>
 </head>
 <body>
 	<div class="container">
@@ -19,7 +22,7 @@
 		   <div class="teladireita">
 			   <br>
 			   <center><h1 style="color:#02a4c4">CADASTRO</h1></center>
-			   <form action="" method="post" onSubmit="alert('test')">
+			   <form id="cadFormula">
 					   <div class="row" style="width:90%; margin:auto">
 					<div class="col-md-6">
 						<label for="nome">Nome</label><br>
@@ -30,14 +33,14 @@
 						<input type="text" name="tele" id="tele" required>
 						<br><br><br>
 						<label for="CEP">CEP</label><br>
-						<input type="number" name="CEP" id="CEP" required><br>
+						<input type="text" name="CEP" id="CEP" required><br>
 
 					</div>
 					<div class="col-md-6">
 						<label for="rua">Rua</label><br>
 						<input type="text" name="rua" id="rua" required><br>
 						<label for="ncasa">Numero</label><br>
-						<input type="number" name="ncasa" id="ncasa" required><br>
+						<input type="text" name="ncasa" id="ncasa" required><br>
 						<label for="comple">Complemento</label><br>
 						<input type="text" name="comple" id="comple"><br>
 						<label for="ncasa">Bairro</label><br>
@@ -54,5 +57,45 @@
 	   </div>
 	</div>
 	</div>
+	<script>	
+	function cadastra(){
+		var dados = {
+			seu_email: "guilhermepereiradipolito@hotmail.com",
+			nome: document.getElementById("nome").value,
+			email: document.getElementById("email").value,
+			telefone: document.getElementById("tele").value,
+			rua: document.getElementById("rua").value,
+			número: document.getElementById("ncasa").value,
+			complemento: document.getElementById("comple").value,
+			bairro: document.getElementById("bairro").value,
+			cidade: document.getElementById("cidade").value,
+			uf: document.getElementById("estado").value,
+			cep: document.getElementById("CEP").value
+		};
+		$.post("https://estagio.eficazmarketing.com/api/user", dados).done(function(resp){
+			alert("cadastro enviado");
+		});
+	}//fim da cadastra
+	
+	function voltadefault(){
+			document.getElementById("nome").value="";
+			document.getElementById("email").value="";
+			document.getElementById("tele").value="";
+			document.getElementById("rua").value="";
+			document.getElementById("ncasa").value="";
+			document.getElementById("comple").value="";
+			document.getElementById("bairro").value="";
+			document.getElementById("cidade").value="";
+			document.getElementById("estado").value="";
+			document.getElementById("CEP").value="";
+	
+	}
+
+	$("#cadFormula").submit(function(event){
+	event.preventDefault();
+	cadastra();
+	voltadefault();
+	});
+	</script>
 </body>
 </html>
