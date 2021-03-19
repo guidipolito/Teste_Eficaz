@@ -21,7 +21,7 @@
 	   <div class="col-md-9">
 		   <div class="teladireita">
 			   <br>
-			   <center><h1 style="color:#02a4c4">CADASTRO</h1></center>
+			   <center><h1 style="color:#02a4c4" id="titulo">CADASTRO</h1></center>
 			   <form id="cadFormula">
 					   <div class="row" style="width:90%; margin:auto">
 					<div class="col-md-6">
@@ -40,7 +40,7 @@
 						<label for="rua">Rua</label><br>
 						<input type="text" name="rua" id="rua" required><br>
 						<label for="ncasa">Numero</label><br>
-						<input type="text" name="ncasa" id="ncasa" required><br>
+						<input type="number" name="ncasa" id="ncasa" required><br>
 						<label for="comple">Complemento</label><br>
 						<input type="text" name="comple" id="comple"><br>
 						<label for="ncasa">Bairro</label><br>
@@ -49,7 +49,7 @@
 						<input type="text" name="cidade" id="cidade" required><br>
 						<label for="estado">Estado</label><br>
 						<input type="text" name="estado" id="estado" required><br><br><br>
-						<input type="submit" value="Cadastrar" class="btnSubmit">
+						<input type="submit" value="Cadastrar" class="btnSubmit" id="btns">
 					</div>
 					   </div>
 			   </form>
@@ -57,7 +57,28 @@
 	   </div>
 	</div>
 	</div>
-	<script>	
+	<script>
+		//essa parte até o proximo comentario define se é um fomulario de edição e carrega os dados
+		if(sessionStorage['idEficaz']){
+			var idusuario = sessionStorage['idEficaz'];
+			document.getElementById("cadFormula").id="EcadFormula";
+			document.getElementById("titulo").innerHTML="Edição de Cadastro";
+			document.getElementById("btns").value="editar";
+			$.get("https://estagio.eficazmarketing.com/api/user/"+idusuario, function(usu){
+				document.getElementById("nome").value=usu.nome;
+				document.getElementById("email").value=usu.email;
+				document.getElementById("tele").value=usu.telefone;
+				document.getElementById("rua").value=usu.rua;
+				document.getElementById("bairro").value=usu.bairro;
+				document.getElementById("CEP").value=usu.cep;
+				document.getElementById("cidade").value=usu.cidade;
+				document.getElementById("estado").value=usu.uf;
+				document.getElementById("ncasa").value=usu.numero;
+				document.getElementById("comple").value=usu.complemento;
+			});
+			sessionStorage.clear();
+		}	
+	//a partir daqui é a função de cadastro normal
 	function cadastra(){
 		var dados = {
 			seu_email: "guilhermepereiradipolito@hotmail.com",
@@ -65,7 +86,7 @@
 			email: document.getElementById("email").value,
 			telefone: document.getElementById("tele").value,
 			rua: document.getElementById("rua").value,
-			número: document.getElementById("ncasa").value,
+			numero: document.getElementById("ncasa").value,
 			complemento: document.getElementById("comple").value,
 			bairro: document.getElementById("bairro").value,
 			cidade: document.getElementById("cidade").value,
@@ -76,7 +97,10 @@
 			alert("cadastro enviado");
 		});
 	}//fim da cadastra
-	
+
+
+
+	//função que estou usando pra definir de volta o valor ja que eu cancelei o de voltar default pra poder pegar os valores com js
 	function voltadefault(){
 			document.getElementById("nome").value="";
 			document.getElementById("email").value="";
@@ -91,11 +115,51 @@
 	
 	}
 
+
+	//A parte do jQuery que detecta se foi enviado o cadastro e então chama as funções
 	$("#cadFormula").submit(function(event){
 	event.preventDefault();
 	cadastra();
 	voltadefault();
 	});
+
+
+
+	//Quase a mesma coisa da função de cadastro, mas pra editar
+	function editaCadastro(){
+		var dados = {
+			seu_email: "guilhermepereiradipolito@hotmail.com",
+			nome: document.getElementById("nome").value,
+			email: document.getElementById("email").value,
+			telefone: document.getElementById("tele").value,
+			rua: document.getElementById("rua").value,
+			numero: document.getElementById("ncasa").value,
+			complemento: document.getElementById("comple").value,
+			bairro: document.getElementById("bairro").value,
+			cidade: document.getElementById("cidade").value,
+			uf: document.getElementById("estado").value,
+			cep: document.getElementById("CEP").value
+		};
+		$.ajax({
+			url: "https://estagio.eficazmarketing.com/api/user/"+idusuario,
+			type: "PUT",
+			data:  dados,
+			success: function(resposta){
+				alert("Edição enviada");
+				window.location.assign("lista.html");
+			}
+		});	
+	}//fim da edicao
+
+
+	//igual na outra parte do jquary mas detectando caso seja de edição
+	$("#EcadFormula").submit(function(event){
+	event.preventDefault();
+	editaCadastro();
+	
+	});
+
+
 	</script>
 </body>
 </html>

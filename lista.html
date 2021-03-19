@@ -49,8 +49,7 @@
 	</div>
 </body>
 <script type="application/javascript">
-	$(document).ready(function(){
-		function buscaUsuariosCadastrados(){
+function buscaUsuariosCadastrados(){
 			$.ajax({
 				url: "https://estagio.eficazmarketing.com/api/user",
 				type: "GET",
@@ -69,7 +68,7 @@
 
 					tr += '<td style="width:10%">';
 
-					tr += '<button type="button" class="btn btn-success btEditar" id="btEditar_' + idusuario + '">Editar</button><br/>';
+					tr += '<button type="button" class="btn btn-success btEditar" id="btEditar_' + idusuario + '" onclick="usuedit('+idusuario+')">Editar</button><br/>';
 
 					tr += '<button type="button" class="btn btn-danger btExcluir" id="btExcluir_' + idusuario + '" onclick="usudelete('+idusuario+')">Excluir</button>';
 
@@ -81,7 +80,9 @@
 					});
 				});
 			}
-			buscaUsuariosCadastrados();
+
+	$(document).ready(function(){
+					buscaUsuariosCadastrados();
 		});
 	function usudelete(id){
 		if(confirm("Deve-se prosseguir com exclusão do cadastro?")){
@@ -93,6 +94,11 @@
 				}
 			});
 		}
+	}
+	function usuedit(id){
+		window.sessionStorage.clear();
+		window.sessionStorage.setItem("idEficaz",id);
+		window.location.assign("cadastro.html");
 	}
 </script>
 </html>
