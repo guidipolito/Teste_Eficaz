@@ -71,7 +71,7 @@
 
 					tr += '<button type="button" class="btn btn-success btEditar" id="btEditar_' + idusuario + '">Editar</button><br/>';
 
-					tr += '<button type="button" class="btn btn-danger btExcluir" id="btExcluir_' + idusuario + '">Excluir</button>';
+					tr += '<button type="button" class="btn btn-danger btExcluir" id="btExcluir_' + idusuario + '" onclick="usudelete('+idusuario+')">Excluir</button>';
 
 					tr += '</td>';
 
@@ -83,5 +83,16 @@
 			}
 			buscaUsuariosCadastrados();
 		});
+	function usudelete(id){
+		if(confirm("Deve-se prosseguir com exclusão do cadastro?")){
+			$.ajax({
+				url: 'https://estagio.eficazmarketing.com/api/user/'+id,
+				type: 'DELETE',
+				success: function(resposta){
+					alert(resposta.message);
+				}
+			});
+		}
+	}
 </script>
 </html>
