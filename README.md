@@ -1,5 +1,5 @@
 # Teste para programa de Estagio da Eficaz - 2021
-#### Confira o resultado em: [guidipolito.github.io/Teste_Eficaz/](https://guidipolito.github.io/Teste_Eficaz/index.html)
+#### Confira o resultado em: [guidipolito.github.io/Teste_Eficaz/](https://guidipolito.github.io/Teste_Eficaz/)
 ##  :memo:Etapas:
 1. Criação do menu :heavy_check_mark:
 1. Criar a tela de cadastro do usuário ao sistema :heavy_check_mark:
