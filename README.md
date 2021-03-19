@@ -3,7 +3,7 @@
 ##  :memo:Etapas:
 1. Criação do menu :heavy_check_mark:
 1. Criar a tela de cadastro do usuário ao sistema :heavy_check_mark:
-1. Criar a tela de listar Usuários Cadastrados no sistema. :heavy_check_mark: <hr><h3>:heavy_plus_sign: Extra:</h3>
+1. Criar e ajustar a tela de listar Usuários Cadastrados no sistema. :heavy_check_mark: <hr><h3>:heavy_plus_sign: Extra:</h3>
 1. Realizar a edição de um usuário cadastrado :heavy_check_mark:
 1. Deletar um usuário cadastrado. :heavy_check_mark:
 
